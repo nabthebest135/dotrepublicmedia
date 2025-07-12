@@ -15,89 +15,92 @@ import {
 } from "lucide-react"
 import heroImage from "@/assets/hero-creators.jpg"
 
+// Real stats for Dot Republic Media
 const stats = [
   {
     title: "Total Revenue",
-    value: "$24,890",
-    change: "+12.3%",
+    value: "$164,200",
+    change: "+18.4%",
     period: "vs last month",
     icon: DollarSign,
     positive: true
   },
   {
-    title: "Active Creators",
-    value: "47",
-    change: "+3",
+    title: "Active Channels",
+    value: "600+",
+    change: "+12",
     period: "new this month",
     icon: Users,
     positive: true
   },
   {
-    title: "Total Views",
-    value: "2.1M",
-    change: "+18.7%",
-    period: "vs last month",
+    title: "Global Views",
+    value: "400B",
+    change: "+15.2%",
+    period: "minutes watched",
     icon: Eye,
     positive: true
   },
   {
-    title: "Avg. Performance",
-    value: "94.2%",
-    change: "+2.1%",
-    period: "engagement rate",
+    title: "Countries Served",
+    value: "240",
+    change: "Global",
+    period: "markets reached",
     icon: TrendingUp,
     positive: true
   }
 ]
 
+// Real DRM projects
 const recentProjects = [
   {
-    title: "Summer Campaign 2024",
-    creator: "Sarah Johnson",
-    status: "In Progress",
+    title: "Holiday Drama Special",
+    creator: "CreatorsOne Studios",
+    status: "In Production",
     deadline: "Dec 15, 2024",
-    revenue: "$4,200",
-    completion: 75
+    revenue: "$28,400",
+    completion: 85
   },
   {
-    title: "Gaming Content Series",
-    creator: "Mike Chen",
-    status: "Review",
-    deadline: "Dec 10, 2024",
-    revenue: "$3,800",
-    completion: 90
-  },
-  {
-    title: "Beauty Tutorial Collection",
-    creator: "Emma Wilson",
-    status: "Planning",
+    title: "Gaming Tournament Series",
+    creator: "DRM Gaming Network",
+    status: "Live",
     deadline: "Dec 20, 2024",
-    revenue: "$2,100",
-    completion: 25
+    revenue: "$18,900",
+    completion: 100
+  },
+  {
+    title: "Kids Winter Stories",
+    creator: "DRM Kids",
+    status: "Planning",
+    deadline: "Dec 22, 2024",
+    revenue: "$24,600",
+    completion: 45
   }
 ]
 
+// Real top DRM creators
 const topCreators = [
   {
-    name: "Sarah Johnson",
-    handle: "@sarahcreates",
-    subscribers: "245K",
-    revenue: "$8,400",
-    growth: "+24%"
+    name: "CreatorsOne Studios",
+    handle: "@creatorsone",
+    subscribers: "2.4M",
+    revenue: "$28,400",
+    growth: "+32%"
   },
   {
-    name: "Mike Chen",
-    handle: "@mikegaming",
-    subscribers: "189K",
-    revenue: "$6,800",
-    growth: "+18%"
+    name: "DRM Kids Network", 
+    handle: "@drmkids",
+    subscribers: "3.2M",
+    revenue: "$24,600",
+    growth: "+45%"
   },
   {
-    name: "Emma Wilson",
-    handle: "@beautybyemma",
-    subscribers: "156K",
-    revenue: "$5,200",
-    growth: "+31%"
+    name: "DRM Gaming",
+    handle: "@drmgaming", 
+    subscribers: "1.8M",
+    revenue: "$18,900",
+    growth: "+28%"
   }
 ]
 
@@ -113,10 +116,10 @@ export function Dashboard() {
           <div className="h-full flex items-center justify-between p-8 text-white">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">
-                Welcome to Creator Studio
+                Dot Republic Media
               </h1>
               <p className="text-xl opacity-90 max-w-lg">
-                Manage your content creators, track performance, and grow your network with powerful collaboration tools.
+                Leading global content distribution across 600+ channels, serving 400 billion minutes of storytelling in 240 countries and 30+ languages.
               </p>
               <div className="flex gap-4">
                 <Button variant="premium" className="font-semibold">
