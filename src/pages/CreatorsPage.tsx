@@ -14,15 +14,12 @@ import {
   Clock
 } from "lucide-react"
 
-// Real Dot Republic Media channels and partnerships
+// Real Dot Republic Media channels - verified from search
 const realCreators = [
   {
     name: "DRM News",
     handle: "@drmnews",
     category: "News & Current Affairs",
-    subscribers: "2.1M",
-    revenue: "$45,200",
-    growth: "+67%",
     status: "Featured",
     language: "English",
     country: "Global",
@@ -32,9 +29,6 @@ const realCreators = [
     name: "CreatorsOne Studios", 
     handle: "@creatorsone",
     category: "Original Series & Entertainment",
-    subscribers: "1.8M",
-    revenue: "$32,100",
-    growth: "+43%",
     status: "Featured",
     language: "Urdu/English",
     country: "Pakistan/Global",
@@ -44,33 +38,15 @@ const realCreators = [
     name: "C1 Shorts",
     handle: "@c1shorts", 
     category: "Music & Short Content",
-    subscribers: "950K",
-    revenue: "$18,600",
-    growth: "+38%",
     status: "Active",
     language: "Urdu/Punjabi",
     country: "Pakistan",
     description: "Music videos featuring Aima Baig, Asim Azhar and trending Pakistani artists"
   },
   {
-    name: "C1 Fitness",
-    handle: "@c1fitness",
-    category: "Health & Fitness",
-    subscribers: "420K", 
-    revenue: "$12,800",
-    growth: "+52%",
-    status: "Active",
-    language: "Urdu/English",
-    country: "Pakistan",
-    description: "Pakistan's first digital fitness network with workout routines and wellness content"
-  },
-  {
     name: "Next Level Entertainment",
     handle: "@nextlevelentertainmentpk",
     category: "Music & Entertainment",
-    subscribers: "680K",
-    revenue: "$15,400",
-    growth: "+29%",
     status: "Active",
     language: "Urdu",
     country: "Pakistan", 
@@ -80,49 +56,51 @@ const realCreators = [
     name: "Play Entertainment TV",
     handle: "@playentertainment.tv",
     category: "Drama & TV Content",
-    subscribers: "1.2M",
-    revenue: "$22,700",
-    growth: "+35%",
     status: "Active",
     language: "Urdu",
     country: "Pakistan",
     description: "Broadcast partner for original series and entertainment programming"
+  },
+  {
+    name: "Bajao Music",
+    handle: "@bajaomusik",
+    category: "Music Distribution",
+    status: "Active",
+    language: "Multiple",
+    country: "Pakistan",
+    description: "VOD partner for music content distribution and streaming"
   }
 ]
 
-// Real partnerships and deals
+// Real partnerships and content deals - verified from research
 const realDeals = [
-  {
-    title: "FilmRise x Shout! Studios Merger",
-    partner: "Oaktree Capital",
-    value: "$55M+",
-    type: "Acquisition",
-    status: "Completed 2025",
-    description: "Global content distribution platform with 70,000+ titles"
-  },
-  {
-    title: "Disney+ x ITV Content Share",
-    partner: "Disney & ITV",
-    value: "Multi-million",
-    type: "Content Partnership", 
-    status: "Active 2025",
-    description: "First-of-its-kind reciprocal content sharing across streaming platforms"
-  },
   {
     title: "Inspector Jamshed Series",
     partner: "Ishtiaq Ahmed Estate",
-    value: "$2.5M",
     type: "Content Rights",
     status: "In Production",
-    description: "Pakistan's biggest detective series adaptation for CreatorsOne"
+    description: "Pakistan's biggest detective series adaptation featuring renowned author's stories"
   },
   {
     title: "Aima Baig Music Partnership", 
     partner: "Bajao Music",
-    value: "$800K",
     type: "Music Distribution",
     status: "Active",
-    description: "Exclusive music distribution and promotion for C1 Shorts"
+    description: "Music distribution for hit songs like 'Aey Zindagi' through C1 Shorts"
+  },
+  {
+    title: "Asim Azhar 'Tasveer' Production",
+    partner: "Next Level Entertainment",
+    type: "Music Production",
+    status: "Released",
+    description: "Official music video production and distribution collaboration"
+  },
+  {
+    title: "C1 Fitness Network Launch",
+    partner: "Fitness Industry Partners",
+    type: "Content Network",
+    status: "Launched 2020",
+    description: "Pakistan's first digital fitness network for health and wellness content"
   }
 ]
 
@@ -218,7 +196,7 @@ export function CreatorsPage() {
                 </div>
                 <p className="text-sm text-muted-foreground">{deal.description}</p>
                 <p className="text-sm">
-                  <strong>Partner:</strong> {deal.partner} • <strong>Value:</strong> {deal.value}
+                  <strong>Partner:</strong> {deal.partner}
                 </p>
               </div>
               <Button variant="ghost" size="sm">
@@ -280,33 +258,16 @@ export function CreatorsPage() {
                    </div>
                 </div>
               </div>
-              <div className="text-right space-y-2">
-                <div className="flex items-center gap-6">
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">Subscribers</p>
-                    <p className="font-semibold text-foreground">{creator.subscribers}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">Revenue</p>
-                    <p className="font-semibold text-primary">{creator.revenue}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">Growth</p>
-                    <p className="font-semibold text-success flex items-center gap-1">
-                      <TrendingUp className="h-3 w-3" />
-                      {creator.growth}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm">
-                    View Profile
-                  </Button>
-                  <Button variant="ghost" size="sm">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
+               <div className="text-right space-y-2">
+                 <div className="flex gap-2">
+                   <Button variant="outline" size="sm">
+                     View Profile
+                   </Button>
+                   <Button variant="ghost" size="sm">
+                     <ArrowUpRight className="h-4 w-4" />
+                   </Button>
+                 </div>
+               </div>
             </div>
           ))}
         </CardContent>
