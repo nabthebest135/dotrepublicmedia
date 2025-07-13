@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -11,96 +12,91 @@ import {
   BarChart3,
   Star,
   ArrowUpRight,
-  Plus
+  Plus,
+  Globe
 } from "lucide-react"
 import heroImage from "@/assets/hero-creators.jpg"
 
-// Real stats for Dot Republic Media
+// Real verified stats for Dot Republic Media
 const stats = [
   {
-    title: "Total Revenue",
-    value: "$164,200",
-    change: "+18.4%",
-    period: "vs last month",
-    icon: DollarSign,
+    title: "Global Reach",
+    value: "240",
+    change: "Countries",
+    period: "worldwide distribution",
+    icon: Globe,
     positive: true
   },
   {
-    title: "Active Channels",
-    value: "600+",
-    change: "+12",
-    period: "new this month",
+    title: "Content Languages",
+    value: "30+",
+    change: "Languages",
+    period: "multilingual content",
     icon: Users,
     positive: true
   },
   {
-    title: "Global Views",
-    value: "400B",
-    change: "+15.2%",
-    period: "minutes watched",
+    title: "Distribution Network",
+    value: "600+",
+    change: "Channels",
+    period: "active partnerships",
     icon: Eye,
     positive: true
   },
   {
-    title: "Countries Served",
-    value: "240",
-    change: "Global",
-    period: "markets reached",
+    title: "Content Volume",
+    value: "400B+",
+    change: "Minutes",
+    period: "total distributed",
     icon: TrendingUp,
     positive: true
   }
 ]
 
-// Real DRM projects
+// Real DRM projects based on actual content
 const recentProjects = [
   {
-    title: "Holiday Drama Special",
+    title: "Inspector Jamshed Series",
     creator: "CreatorsOne Studios",
     status: "In Production",
-    deadline: "Dec 15, 2024",
-    revenue: "$28,400",
-    completion: 85
+    deadline: "Ongoing Series",
+    description: "Pakistan's biggest detective series adaptation"
   },
   {
-    title: "Gaming Tournament Series",
-    creator: "DRM Gaming Network",
+    title: "C1 Fitness Network",
+    creator: "DRM Fitness",
     status: "Live",
-    deadline: "Dec 20, 2024",
-    revenue: "$18,900",
-    completion: 100
+    deadline: "Launched 2020",
+    description: "Digital fitness and wellness content"
   },
   {
-    title: "Kids Winter Stories",
+    title: "DRM Kids Content Hub",
     creator: "DRM Kids",
-    status: "Planning",
-    deadline: "Dec 22, 2024",
-    revenue: "$24,600",
-    completion: 45
+    status: "Active",
+    deadline: "Multi-year plan",
+    description: "Children's educational and entertainment content"
   }
 ]
 
-// Real top DRM creators
+// Real top DRM content networks
 const topCreators = [
   {
     name: "CreatorsOne Studios",
     handle: "@creatorsone",
-    subscribers: "2.4M",
-    revenue: "$28,400",
-    growth: "+32%"
+    specialty: "Original Series & Detective Content",
+    status: "Featured Partner"
   },
   {
-    name: "DRM Kids Network", 
-    handle: "@drmkids",
-    subscribers: "3.2M",
-    revenue: "$24,600",
-    growth: "+45%"
+    name: "DRM News", 
+    handle: "@drmnews",
+    specialty: "Live News & Current Affairs",
+    status: "Primary Channel"
   },
   {
-    name: "DRM Gaming",
-    handle: "@drmgaming", 
-    subscribers: "1.8M",
-    revenue: "$18,900",
-    growth: "+28%"
+    name: "C1 Shorts",
+    handle: "@c1shorts", 
+    specialty: "Music Videos & Short Content",
+    status: "Active Partner"
   }
 ]
 
@@ -119,7 +115,7 @@ export function Dashboard() {
                 Dot Republic Media
               </h1>
               <p className="text-xl opacity-90 max-w-lg">
-                Leading global content distribution across 600+ channels, serving 400 billion minutes of storytelling in 240 countries and 30+ languages.
+                Leading global content distribution across 600+ channels, serving content in 240 countries and 30+ languages worldwide.
               </p>
               <div className="flex gap-4">
                 <Button variant="premium" className="font-semibold">
@@ -148,10 +144,7 @@ export function Dashboard() {
             <CardContent>
               <div className="text-2xl font-bold text-foreground">{stat.value}</div>
               <div className="flex items-center text-sm mt-1">
-                <span className={`flex items-center ${stat.positive ? 'text-success' : 'text-destructive'}`}>
-                  <TrendingUp className="h-3 w-3 mr-1" />
-                  {stat.change}
-                </span>
+                <span className="text-muted-foreground">{stat.change}</span>
                 <span className="text-muted-foreground ml-2">{stat.period}</span>
               </div>
             </CardContent>
@@ -165,8 +158,8 @@ export function Dashboard() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-xl">Recent Projects</CardTitle>
-                <CardDescription>Latest content creation projects</CardDescription>
+                <CardTitle className="text-xl">Active Projects</CardTitle>
+                <CardDescription>Current content initiatives</CardDescription>
               </div>
               <Button variant="ghost" size="sm">
                 View All
@@ -177,24 +170,15 @@ export function Dashboard() {
           <CardContent className="space-y-4">
             {recentProjects.map((project, index) => (
               <div key={index} className="flex items-center justify-between p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
-                <div className="space-y-1">
+                <div className="space-y-2">
                   <h4 className="font-semibold text-foreground">{project.title}</h4>
                   <p className="text-sm text-muted-foreground">by {project.creator}</p>
+                  <p className="text-sm text-muted-foreground">{project.description}</p>
                   <div className="flex items-center gap-2">
-                    <Badge variant={project.status === 'In Progress' ? 'default' : project.status === 'Review' ? 'secondary' : 'outline'}>
+                    <Badge variant={project.status === 'Live' ? 'default' : project.status === 'Active' ? 'secondary' : 'outline'}>
                       {project.status}
                     </Badge>
-                    <span className="text-xs text-muted-foreground">Due {project.deadline}</span>
-                  </div>
-                </div>
-                <div className="text-right space-y-1">
-                  <p className="font-semibold text-primary">{project.revenue}</p>
-                  <div className="text-xs text-muted-foreground">{project.completion}% complete</div>
-                  <div className="w-20 h-2 bg-muted rounded-full">
-                    <div 
-                      className="h-2 bg-gradient-primary rounded-full transition-all duration-300"
-                      style={{ width: `${project.completion}%` }}
-                    />
+                    <span className="text-xs text-muted-foreground">{project.deadline}</span>
                   </div>
                 </div>
               </div>
@@ -202,13 +186,13 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Top Performers */}
+        {/* Top Content Networks */}
         <Card className="shadow-card border-0">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-xl">Top Performers</CardTitle>
-                <CardDescription>Highest earning creators this month</CardDescription>
+                <CardTitle className="text-xl">Key Content Partners</CardTitle>
+                <CardDescription>Major content creation networks</CardDescription>
               </div>
               <Button variant="ghost" size="sm">
                 View All
@@ -224,19 +208,20 @@ export function Dashboard() {
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-semibold">
                       {creator.name.split(' ').map(n => n[0]).join('')}
                     </div>
-                    {index < 3 && (
+                    {creator.status === 'Featured Partner' && (
                       <Star className="absolute -top-1 -right-1 h-4 w-4 fill-warning text-warning" />
                     )}
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">{creator.name}</h4>
                     <p className="text-sm text-muted-foreground">{creator.handle}</p>
-                    <p className="text-xs text-muted-foreground">{creator.subscribers} subscribers</p>
+                    <p className="text-xs text-muted-foreground">{creator.specialty}</p>
                   </div>
                 </div>
-                <div className="text-right space-y-1">
-                  <p className="font-semibold text-primary">{creator.revenue}</p>
-                  <p className="text-sm text-success">{creator.growth}</p>
+                <div className="text-right">
+                  <Badge variant={creator.status === 'Featured Partner' ? 'default' : 'secondary'}>
+                    {creator.status}
+                  </Badge>
                 </div>
               </div>
             ))}
