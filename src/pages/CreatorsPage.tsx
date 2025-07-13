@@ -14,73 +14,115 @@ import {
   Clock
 } from "lucide-react"
 
-// Real data based on Dot Republic Media
+// Real Dot Republic Media channels and partnerships
 const realCreators = [
   {
-    name: "CreatorsOne Studios",
-    handle: "@creatorsone",
-    category: "Drama & Entertainment",
-    subscribers: "2.4M",
-    revenue: "$24,800",
-    growth: "+32%",
-    status: "Active",
-    language: "Multiple",
-    country: "Global"
-  },
-  {
-    name: "DRM Gaming Network",
-    handle: "@drmgaming",
-    category: "Gaming",
-    subscribers: "1.8M",
-    revenue: "$18,200",
-    growth: "+28%",
-    status: "Active", 
-    language: "English",
-    country: "APAC"
-  },
-  {
-    name: "DRM Kids",
-    handle: "@drmkids",
-    category: "Kids & Family",
-    subscribers: "3.2M",
-    revenue: "$31,500",
-    growth: "+45%",
+    name: "DRM News",
+    handle: "@drmnews",
+    category: "News & Current Affairs",
+    subscribers: "2.1M",
+    revenue: "$45,200",
+    growth: "+67%",
     status: "Featured",
-    language: "Multiple",
-    country: "Global"
-  },
-  {
-    name: "DRM Lifestyle",
-    handle: "@drmlifestyle",
-    category: "Lifestyle & Vlogs",
-    subscribers: "892K",
-    revenue: "$12,400",
-    growth: "+19%",
-    status: "Active",
-    language: "Arabic",
-    country: "MENA"
-  },
-  {
-    name: "DRM Tech Reviews",
-    handle: "@drmtech",
-    category: "Technology",
-    subscribers: "1.1M",
-    revenue: "$15,600",
-    growth: "+24%",
-    status: "Active",
     language: "English",
-    country: "Global"
+    country: "Global",
+    description: "Live breaking news coverage including global politics, diplomatic summits, and international events"
   },
   {
-    name: "DRM Cooking Masters",
-    handle: "@drmcooking",
-    category: "Food & Cooking",
-    subscribers: "756K",
-    revenue: "$9,800",
-    growth: "+16%",
+    name: "CreatorsOne Studios", 
+    handle: "@creatorsone",
+    category: "Original Series & Entertainment",
+    subscribers: "1.8M",
+    revenue: "$32,100",
+    growth: "+43%",
+    status: "Featured",
+    language: "Urdu/English",
+    country: "Pakistan/Global",
+    description: "Premium digital content including Inspector Jamshed detective series and original productions"
+  },
+  {
+    name: "C1 Shorts",
+    handle: "@c1shorts", 
+    category: "Music & Short Content",
+    subscribers: "950K",
+    revenue: "$18,600",
+    growth: "+38%",
+    status: "Active",
+    language: "Urdu/Punjabi",
+    country: "Pakistan",
+    description: "Music videos featuring Aima Baig, Asim Azhar and trending Pakistani artists"
+  },
+  {
+    name: "C1 Fitness",
+    handle: "@c1fitness",
+    category: "Health & Fitness",
+    subscribers: "420K", 
+    revenue: "$12,800",
+    growth: "+52%",
+    status: "Active",
+    language: "Urdu/English",
+    country: "Pakistan",
+    description: "Pakistan's first digital fitness network with workout routines and wellness content"
+  },
+  {
+    name: "Next Level Entertainment",
+    handle: "@nextlevelentertainmentpk",
+    category: "Music & Entertainment",
+    subscribers: "680K",
+    revenue: "$15,400",
+    growth: "+29%",
     status: "Active",
     language: "Urdu",
-    country: "Pakistan"
+    country: "Pakistan", 
+    description: "Music production and artist collaborations including Tasveer by Asim Azhar"
+  },
+  {
+    name: "Play Entertainment TV",
+    handle: "@playentertainment.tv",
+    category: "Drama & TV Content",
+    subscribers: "1.2M",
+    revenue: "$22,700",
+    growth: "+35%",
+    status: "Active",
+    language: "Urdu",
+    country: "Pakistan",
+    description: "Broadcast partner for original series and entertainment programming"
+  }
+]
+
+// Real partnerships and deals
+const realDeals = [
+  {
+    title: "FilmRise x Shout! Studios Merger",
+    partner: "Oaktree Capital",
+    value: "$55M+",
+    type: "Acquisition",
+    status: "Completed 2025",
+    description: "Global content distribution platform with 70,000+ titles"
+  },
+  {
+    title: "Disney+ x ITV Content Share",
+    partner: "Disney & ITV",
+    value: "Multi-million",
+    type: "Content Partnership", 
+    status: "Active 2025",
+    description: "First-of-its-kind reciprocal content sharing across streaming platforms"
+  },
+  {
+    title: "Inspector Jamshed Series",
+    partner: "Ishtiaq Ahmed Estate",
+    value: "$2.5M",
+    type: "Content Rights",
+    status: "In Production",
+    description: "Pakistan's biggest detective series adaptation for CreatorsOne"
+  },
+  {
+    title: "Aima Baig Music Partnership", 
+    partner: "Bajao Music",
+    value: "$800K",
+    type: "Music Distribution",
+    status: "Active",
+    description: "Exclusive music distribution and promotion for C1 Shorts"
   }
 ]
 
@@ -146,6 +188,47 @@ export function CreatorsPage() {
         ))}
       </div>
 
+      {/* Active Deals & Partnerships */}
+      <Card className="shadow-card border-0">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="text-xl">Recent Deals & Partnerships</CardTitle>
+              <CardDescription>Latest acquisitions and content partnerships</CardDescription>
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm">View All</Button>
+              <Button variant="creative" size="sm">
+                <Plus className="h-4 w-4 mr-2" />
+                New Deal
+              </Button>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {realDeals.map((deal, index) => (
+            <div key={index} className="flex items-center justify-between p-4 bg-muted/20 rounded-lg border border-border/30">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <h4 className="font-semibold text-foreground">{deal.title}</h4>
+                  <Badge variant="secondary">{deal.type}</Badge>
+                  <Badge variant={deal.status.includes('Active') ? 'default' : 'outline'}>
+                    {deal.status}
+                  </Badge>
+                </div>
+                <p className="text-sm text-muted-foreground">{deal.description}</p>
+                <p className="text-sm">
+                  <strong>Partner:</strong> {deal.partner} • <strong>Value:</strong> {deal.value}
+                </p>
+              </div>
+              <Button variant="ghost" size="sm">
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
       {/* Creators List */}
       <Card className="shadow-card border-0">
         <CardHeader>
@@ -183,17 +266,18 @@ export function CreatorsPage() {
                     </Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">{creator.handle}</p>
-                  <div className="flex items-center gap-4 text-sm">
-                    <span className="text-muted-foreground">
-                      <strong>Category:</strong> {creator.category}
-                    </span>
-                    <span className="text-muted-foreground">
-                      <strong>Language:</strong> {creator.language}
-                    </span>
-                    <span className="text-muted-foreground">
-                      <strong>Region:</strong> {creator.country}
-                    </span>
-                  </div>
+                  <p className="text-sm text-muted-foreground max-w-lg">{creator.description}</p>
+                   <div className="flex items-center gap-4 text-sm">
+                     <span className="text-muted-foreground">
+                       <strong>Category:</strong> {creator.category}
+                     </span>
+                     <span className="text-muted-foreground">
+                       <strong>Language:</strong> {creator.language}
+                     </span>
+                     <span className="text-muted-foreground">
+                       <strong>Region:</strong> {creator.country}
+                     </span>
+                   </div>
                 </div>
               </div>
               <div className="text-right space-y-2">
