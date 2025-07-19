@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import { LandingPage } from "./components/LandingPage";
+import { AboutPage } from "./pages/AboutPage";
 import Index from "./pages/Index";
 import { CreatorsPage } from "./pages/CreatorsPage";
 import { AnalyticsPage } from "./pages/AnalyticsPage";
@@ -29,8 +31,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Public Landing Page */}
+          <Route path="/landing" element={<LandingPage />} />
+          
+          {/* Dashboard Routes */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Index />} />
+            <Route path="about" element={<AboutPage />} />
             <Route path="analytics" element={<AnalyticsPage />} />
             <Route path="revenue" element={<RevenuePage />} />
             <Route path="calendar" element={<CalendarPage />} />
